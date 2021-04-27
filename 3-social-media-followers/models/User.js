@@ -19,4 +19,3 @@ const User = model("User", UserSchema)
 
 module.exports = User
 
-mongo-schema-user

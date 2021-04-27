@@ -14,4 +14,3 @@ const Post = model("Post", PostSchema)
 
 module.exports = Post
 
-mongo-schema-user

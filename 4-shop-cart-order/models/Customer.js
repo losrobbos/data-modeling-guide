@@ -15,6 +15,8 @@ const CustomerSchema = new Schema({
   address: { type: AddressSchema, required: true },
   deliveryAddress: AddressSchema, // optional separate delivery address
   billingAddress: AddressSchema, // optional, separate billing address
+  // if you want to allow multiple delivery addresses per user you can simply use the following:
+  // deliveryAddress: [AddressSchema]
 })
 
 const Customer = model("Customer", CustomerSchema)

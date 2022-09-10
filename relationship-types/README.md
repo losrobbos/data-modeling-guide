@@ -91,10 +91,10 @@ We can link each child item to its parent by placing an ID.
 Todos:
 ```
 [
-  { _id: "t1", title: "Wake the dog", userId: "u1" },
-  { _id: "t2", title: "Clean the dishes", userId: "u1" },
-  { _id: "t3", title: "Learn Python", userId: "u1" },
-  { _id: "t5", title: "Learn Relations", userId: "u1" },
+  { _id: "t1", title: "Wake the dog", user: "u1" },
+  { _id: "t2", title: "Clean the dishes", user: "u1" },
+  { _id: "t3", title: "Learn Python", user: "u1" },
+  { _id: "t5", title: "Learn Relations", user: "u1" },
 ]
 ```
 

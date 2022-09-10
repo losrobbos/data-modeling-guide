@@ -32,7 +32,7 @@ Example Order - Delivery Address:
 }
 ```
 
-### One to Few
+## One to Few
 
 One item has LIMITED related (child) items.
 
@@ -54,7 +54,7 @@ Example social media profile links of a user:
 ```
 
 
-### One to Many
+## One to Many
 
 One item can have many, potentially UNLIMITED related items of another one.
 
@@ -64,7 +64,7 @@ Technique: Reference related items by their ID.
 
 We can map a One to Many relation in TWO ways.
 
-#### Relation on parent
+### Technique 1: Relation on parent
 
 We can link the parent to its children via an array on the parent item:
 
@@ -84,7 +84,7 @@ Implementation in Mongoose (User Schema):
 todos: [ { type: mongoose.Types.ObjectId, ref: "Todo" } ]
 ```
 
-#### Relation on child
+### Technique 2: Relation on child
 
 We can link each child item to its parent by placing an ID.
 
@@ -112,6 +112,8 @@ Why?
 In case we want to add or delete a todo, we can simply remove it. We do not need to update the user model.
 
 But in case we use the array of related todo IDs on the parent schema (=User), we always need to update the user model too after each creation / deletion of a todo. So this we we always need to do multiple database operations.
+
+So ideally we choose technique 1 in most cases.
 
 
 ## Many to Many

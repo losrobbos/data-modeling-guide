@@ -12,9 +12,9 @@ mongoose.connect(strConn)
 const seed = async () => {
 
   // cleanup DB collections before seeding
-  ProjectEmployee.deleteMany({})
-  Project.deleteMany({})
-  Employee.deleteMany({})
+  await ProjectEmployee.deleteMany({})
+  await Project.deleteMany({})
+  await Employee.deleteMany({})
 
   // create project
   const projectFinal = await Project.create({
@@ -67,5 +67,23 @@ const seed = async () => {
   mongoose.connection.close()
 }
 
+// example how to fetch related data
+const getProjectEmployees = async (projectId) => {
+  const projectEmployees = await ProjectEmployee.find({ project: projectId })
+  // populate relations (= replace IDs by full document data)
+    .populate("project")
+    .populate("employee");
+
+  console.log("Project Employees:");
+  console.log(projectEmployees);
+  
+  mongoose.connection.close()
+}
+
+// create some related data
 seed()
+
+// fetch related data
+// getProjectEmployees("631ce38231cca0dc137fe59d");
+
 

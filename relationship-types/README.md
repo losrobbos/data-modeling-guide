@@ -141,7 +141,7 @@ That relationship type is the hardest to manage.
 
 Because on each insertion / deletion of an item, we need to update items in two collections.
 
-Example: We create an employee and want to assign that employee to a project.
+Example: We have an employee and want to assign that employee to a project.
 
 Now we need to put the project into the "projects" array of the employee.
 And the other way round, we need to put the employee into the "employees" array of the project.

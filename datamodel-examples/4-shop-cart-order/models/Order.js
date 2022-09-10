@@ -1,12 +1,12 @@
-const mongoose = require("mongoose")
-const { Schema, model } = mongoose
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 const AddressSchema = require("./Address");
 
 // this holds a order product with quantity
 const OrderItemSchema = new Schema({
-  product: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
-  quantity: { type: Number, default: 1 }
-})
+  product: { type: Schema.Types.ObjectId, ref: "Product", required: true },
+  quantity: { type: Number, default: 1 },
+});
 
 const OrderSchema = new Schema(
   {
@@ -24,10 +24,10 @@ const OrderSchema = new Schema(
   },
   {
     timestamps: true,
-    versionKey: false
+    versionKey: false,
   }
 );
 
-const Order = model("Order", OrderSchema)
+const Order = model("Order", OrderSchema);
 
-module.exports = Order
+module.exports = Order;

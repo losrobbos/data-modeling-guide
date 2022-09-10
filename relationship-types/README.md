@@ -122,7 +122,6 @@ Many to Many: One Item A can have MANY of the other item B AND one item B can ha
 
 Examples:
 - Book and Authors => one book can be written by many authors. One author can write many books
-- Product Customer => one Product can be bought by MANY customers. One customer can buy MANY products
 - Employee Project => one Employee can be in many projects. One projects can have many employees
 - User Todos => one user can have many todos. One todo can be shared by many users
 

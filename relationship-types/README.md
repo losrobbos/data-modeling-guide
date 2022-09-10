@@ -1,15 +1,25 @@
 # Relations
 
-## One to One 
+There are 4 main types of relations between data items (=Entities):
 
-- 1 User - 1 Account
-- 1 Order - 1 Delivery Address 
+- One to One
+- One to Few
+- One to Many
+- Many to Many
+
+
+## One to One 
 
 One item has exactly one related other item.
 
-Often NESTING the data in the parent is used
+Examples: 
+- 1 User - 1 Account (one user has exactly one account)
+- 1 Order - 1 Delivery Address (one order has exactly one delivery address)
 
-Order:
+
+Often NESTING the child data in the parent item is applied.
+
+Example Order - Delivery Address:
 ```
 {
   _id: "12345",
@@ -28,7 +38,7 @@ One item has LIMITED related (child) items.
 
 Often NESTING the data in the parent is used.
 
-For example social media profile links of a user:
+Example social media profile links of a user:
 
 ```
 {
@@ -46,13 +56,11 @@ For example social media profile links of a user:
 
 ### One to Many
 
-One to Many: One item can have many, potentially UNLIMITED related items of another one.
+One item can have many, potentially UNLIMITED related items of another one.
 
-Technique: Reference items by ID
+Example: A User can have many todos. But each todo only belons to one user.
 
-Example: A User can have as many todos as he / she likes.
-
-
+Technique: Reference related items by their ID.
 
 We can map a One to Many relation in TWO ways.
 

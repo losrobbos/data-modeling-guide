@@ -118,13 +118,13 @@ But in case we use the array of related todo IDs on the parent schema (=User), w
 
 Many to Many: One Item A can have MANY of the other item B AND one item B can have many items of A
 
-Technique: Reference items by ID
-
 Examples:
 - Book and Authors => one book can be written by many authors. One author can write many books
 - Product Customer => one Product can be bought by MANY customers. One customer can buy MANY products
 - Employee Project => one Employee can be in many projects. One projects can have many employees
 - User Todos => one user can have many todos. One todo can be shared by many users
+
+### Technique 1: Reference items by arrays on both sides
 
 Implementation in Mongoose - Example Employee Projects: 
 ```
@@ -139,7 +139,22 @@ So here we need to create arrays of related items on both directions.
 
 That relationship type is the hardest to manage.
 
-Alternatively we can create another Collection where we store MAPPINGS between two items:
+Because on each insertion / deletion of an item, we need to update items in two collections.
+
+Example: We create an employee and want to assign that employee to a project.
+
+Now we need to put the project into the "projects" array of the employee.
+And the other way round, we need to put the employee into the "employees" array of the project.
+
+
+
+### Technique 2: Create mapping collection
+
+Alternatively we can create another collection where we store MAPPINGS between two items.
+
+Usually we name it by the two related collections.
+
+Example: Project and Employee have a many to many relations. So we create a "ProjectEmployee" Schema which holds mapping between items of both collections.
 
 ProjectEmployeeSchema:
 ```
@@ -150,7 +165,7 @@ emmployee: { type: mongoose.Types.ObjectId, ref: "Employee }
 
 In case we assign an employee to a project, we would create an entry in that mapping table, placing the ID of the project and the ID of the employee in it.
 
-This way we can realize a many to many relationship, which is easy to maintain.
+This way we can realize a many to many relationship which is easy to maintain.
 
 In case we wanna remove an employee from a project, we simply delete the entry from the mapping collection.
 
@@ -159,3 +174,8 @@ In case we close a project, we can delete all entries with that project-id from 
 In either way: We just need to touch the mapping table to manage the relations.
 
 
+## Outro
+
+There you have it. The techniques to basically create any relation and therefore almost any (!) data model. 
+
+Enjoy modeling, my friend...

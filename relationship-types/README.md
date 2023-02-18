@@ -86,7 +86,7 @@ todos: [ { type: mongoose.Types.ObjectId, ref: "Todo" } ]
 
 ### Technique 2: Relation on child
 
-We can link each child item to its parent by placing an ID.
+We can link each child item to its parent by placing the ID of the parent on the child.
 
 Todos:
 ```

@@ -111,7 +111,7 @@ Why?
 
 In case we want to add or delete a todo, we can simply add / remove it into the todo collection. And are done. We do not need to update the user model.
 
-But in case we use the array of related todo IDs on the parent schema (=User), we always need to update the user model too after each creation / deletion of a todo. So this we we always need to do multiple database operations.
+But in case we use the array of related todo IDs on the parent schema (=User), we always need to update the user model too after each creation / deletion of a todo. So this way we always need to do multiple (!) database operations in multiple collections.
 
 So ideally we choose technique 1 in most cases.
 

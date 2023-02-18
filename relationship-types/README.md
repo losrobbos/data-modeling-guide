@@ -58,7 +58,7 @@ Example social media profile links of a user:
 
 One item can have many, potentially UNLIMITED related items of another one.
 
-Example: A User can have many todos. But each todo only belons to one user.
+Example: A User can have many todos. But each todo only belongs to one user.
 
 Technique: Reference related items by their ID.
 

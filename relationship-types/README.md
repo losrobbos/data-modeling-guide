@@ -109,7 +109,7 @@ The easier method to manage related data is to put the parent ID in the CHILD sc
 
 Why? 
 
-In case we want to add or delete a todo, we can simply remove it. We do not need to update the user model.
+In case we want to add or delete a todo, we can simply add / remove it into the todo collection. And are done. We do not need to update the user model.
 
 But in case we use the array of related todo IDs on the parent schema (=User), we always need to update the user model too after each creation / deletion of a todo. So this we we always need to do multiple database operations.
 
